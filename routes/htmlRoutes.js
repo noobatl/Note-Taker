@@ -2,7 +2,7 @@
 // DEPENDENCIES
 // We need to include the path package to get the correct file path for our html
 // ===============================================================================
-var path = require("path");
+const path = require("path");
 
 module.exports = function(app) {
 //* GET `/notes` - Should return the `notes.html` file.
