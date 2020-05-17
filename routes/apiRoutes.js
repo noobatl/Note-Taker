@@ -45,9 +45,7 @@ module.exports = function (app) {
       const obj = JSON.parse(data);
       obj.push(note);
 
-      fs.writeFile("./db/db.json", JSON.stringify(obj), function (
-        err
-      ) {
+      fs.writeFile("./db/db.json", JSON.stringify(obj), function (err) {
         if (err) {
           console.log(err);
           return res.send("ERROR: API Route POST Write");
@@ -72,10 +70,12 @@ module.exports = function (app) {
       }
       if (data) {
         const obj = JSON.parse(data);
-        fs.writeFile("./db/db.json", JSON.stringify(obj), function (
-          err,
-          data
-        ) {
+        for (let i = 0; i < obj.length; i++) {
+          if (obj[i].id === noteId) {
+            obj.splice(i, 1);
+          }
+        }
+        fs.writeFile("./db/db.json", JSON.stringify(obj), function (err, data) {
           if (err) {
             console.log(err);
             return res.send("ERROR: Deleting the note");
