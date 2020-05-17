@@ -1,7 +1,3 @@
-// ===============================================================================
-// LOAD DATA
-// We are linking our routes to our db.json file
-// ===============================================================================
 const fs = require("fs");
 
 module.exports = function (app) {
